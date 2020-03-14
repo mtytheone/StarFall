@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6232d5324106f34283bc500b6c8714b, type: 3}
+  m_Name: GameData
+  m_EditorClassIdentifier: 
+  difficultyStatus:
+  - _name: Easy
+    _scoreMultiplier: 0.8
+    _rockfallInterval: 2
+    _bottomInterval: 0.1
+    _displayColor: {r: 0, g: 1, b: 0, a: 1}
+  - _name: Normal
+    _scoreMultiplier: 1
+    _rockfallInterval: 1
+    _bottomInterval: 0.02
+    _displayColor: {r: 1, g: 1, b: 1, a: 1}
+  - _name: Hard
+    _scoreMultiplier: 1.2
+    _rockfallInterval: 0.6
+    _bottomInterval: 0
+    _displayColor: {r: 1, g: 0, b: 0, a: 1}
+  - _name: Extra
+    _scoreMultiplier: 2
+    _rockfallInterval: 0.1
+    _bottomInterval: 0
+    _displayColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
