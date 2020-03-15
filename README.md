@@ -20,7 +20,7 @@
 - D キー or 右矢印キー : 右方向に移動
 - Shift キー : 低速移動
 
-## ちょっとした仕様 - Tips
+## Tips - ちょっとした仕様
 - ロケットの当たり判定は真ん中の青い窓部分のみになります。
 
 ![Rocket](./Rocket.png)
@@ -31,7 +31,7 @@
 
 ![Star](./Star.png)
 
-## ライセンス - License
+## License - ライセンス
 このゲーム、プロジェクト及びソースファイルは **GNU General Public License v3.0** ライセンスに乗っ取ります。
 
 - [ライセンス原文](https://github.com/mtytheone/StarFall/blob/master/LICENSE.md)
