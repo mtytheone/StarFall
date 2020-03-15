@@ -17,8 +17,8 @@ namespace StarFall
         [SerializeField] private Image[] _MenuImage = new Image[2];
         [SerializeField] private Text[] _DifficultyText = new Text[4];
         
-        private int _currentSelect = 0;
-        private int _currentDifficulty = 1;
+        private int _currentSelect;
+        private int _currentDifficulty;
 
         private bool _isOpenExtra = false;
         private bool _initialMessage;
@@ -30,6 +30,15 @@ namespace StarFall
         void Start()
         {
             _gameManager = GameManager.instance;  //staticなGameManagerを取得
+
+            _currentDifficulty = _gameManager.GetDifficultyID();  //難易度を取得
+            for (int i = 0; i < _DifficultyText.Length; i++)  //前回選択した難易度にする
+            {
+                if (i == _currentDifficulty) _DifficultyText[i].enabled = true;
+                else _DifficultyText[i].enabled = false;
+            }
+
+            _currentSelect = 0;
             _initialMessage = _gameManager.GetInitialMessage();  //操作説明画面を出すかどうかのフラグを取得
         }
 
