@@ -51,7 +51,7 @@ namespace StarFall
                     break;
             }}*/
 
-            _prevTime = 0;
+            _prevTime = Time.realtimeSinceStartup;
         }
 
         void Update()

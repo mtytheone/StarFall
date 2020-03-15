@@ -20,7 +20,7 @@ namespace StarFall
         void Start()
         {
             _text = this.GetComponent<Text>();
-            _prevTime = 0;
+            _prevTime = Time.realtimeSinceStartup;
         }
 
         void Update()

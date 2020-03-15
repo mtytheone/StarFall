@@ -26,7 +26,7 @@ namespace  StarFall
         {
             _gameManager = GameManager.instance;  //staticなGameManagerを取得
             _isMovePlayScene = false;
-            _prevTime = 0;
+            _prevTime = Time.realtimeSinceStartup;
             _time = 0;  //初期化
         }
 

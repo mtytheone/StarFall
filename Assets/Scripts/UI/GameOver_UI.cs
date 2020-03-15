@@ -38,6 +38,7 @@ namespace StarFall
             _backgroundImageColor = _background.GetComponent<Image>().material;
             Color prevColor = _backgroundImageColor.GetColor("_Color");
             _backgroundImageColor.SetColor("_Color", new Color(prevColor.r, prevColor.g, prevColor.b, 0));
+            _prevTime = Time.realtimeSinceStartup;
             _time = 0;  //初期化
         }
 
