@@ -18,6 +18,8 @@ namespace hatuxes.Saves
 
         public bool wasOpenExtra;
 
+        public bool initialMessage;
+
         public HiScoreData(float defaultValue)
         {
             _1stHiScoreLists = new float[4] { defaultValue, defaultValue, defaultValue, defaultValue };
@@ -25,6 +27,8 @@ namespace hatuxes.Saves
             _3rdHiScoreLists = new float[4] { defaultValue, defaultValue, defaultValue, defaultValue };
 
             wasOpenExtra = false;
+
+            initialMessage = true;
         }
     }
 

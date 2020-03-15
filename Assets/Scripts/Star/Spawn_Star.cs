@@ -56,9 +56,9 @@ namespace StarFall
 
         void Update()
         {
-            if (Time.realtimeSinceStartup - _prevTime >= _interval)  //一定周期で
+            if (_gameManager.GetState() == 1)  //一定周期で
             {
-                if (_gameManager.GetState() == 1)  //ゲームがプレイ状態なら、星の種類と降ってくる座標・角度・サイズを決めて生成
+                if (Time.realtimeSinceStartup - _prevTime >= _interval)  //一定周期で
                 {
                     int random_star = Random.Range(0, _Prefab.Length);  //インデックス番号をランダムに指定
                     Vector3 coodinate = new Vector3(Random.Range(-10.0f, 4.15f), this.transform.position.y, 0);  //座標をランダムに指定
@@ -69,9 +69,8 @@ namespace StarFall
 
                     _prevTime = Time.realtimeSinceStartup;  //前の時間を今の時間にする
                 }
+                _interval -= _interval >= _bottomInterbal ? 0.0002f : 0;  //インターバルを徐々に短くしていく
             }
-
-            _interval -= _interval >= _bottomInterbal ? 0.0002f : 0;  //インターバルを徐々に短くしていく
         }
     }
 }
