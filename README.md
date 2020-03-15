@@ -36,3 +36,5 @@
 - [ライセンス原文](https://github.com/mtytheone/StarFall/blob/master/LICENSE.md)
 
 - [ライセンスページ](https://choosealicense.com/licenses/gpl-3.0/)
+
+また、ツイートボタンの画像はTwitter社の商標であり、ロケット及び星の画像の著作権はみふねたかしが所有しています。
