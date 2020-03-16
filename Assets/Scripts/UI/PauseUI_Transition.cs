@@ -23,6 +23,7 @@ namespace StarFall
         {
             _gameManager = GameManager.instance;  //staticなGameManagerを取得
             _backgroundImageColor = _background.GetComponent<Image>().material;  //背景のマテリアルを取得
+            _prevTime = Time.realtimeSinceStartup;
         }
 
         void Update()

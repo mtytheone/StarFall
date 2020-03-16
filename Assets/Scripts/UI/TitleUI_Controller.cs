@@ -17,18 +17,29 @@ namespace StarFall
         [SerializeField] private Image[] _MenuImage = new Image[2];
         [SerializeField] private Text[] _DifficultyText = new Text[4];
         
-        private int _currentSelect = 0;
-        private int _currentDifficulty = 1;
+        private int _currentSelect;
+        private int _currentDifficulty;
 
         private bool _isOpenExtra = false;
+        private bool _initialMessage;
 
         //GC対策のカラー
-        private Color _ActiveButtonColor = new Color(0.8f, 0.8f, 0.8f);
-        private Color _DisableButtonColor = new Color(1f, 1f, 1f);
+        private Color _ActiveButtonColor = new Color(1f, 1f, 1f);
+        private Color _DisableButtonColor = new Color(0.4f, 0.4f, 0.4f);
 
         void Start()
         {
             _gameManager = GameManager.instance;  //staticなGameManagerを取得
+
+            _currentDifficulty = _gameManager.GetDifficultyID();  //難易度を取得
+            for (int i = 0; i < _DifficultyText.Length; i++)  //前回選択した難易度にする
+            {
+                if (i == _currentDifficulty) _DifficultyText[i].enabled = true;
+                else _DifficultyText[i].enabled = false;
+            }
+
+            _currentSelect = 0;
+            _initialMessage = _gameManager.GetInitialMessage();  //操作説明画面を出すかどうかのフラグを取得
         }
 
         void Update()
@@ -89,13 +100,28 @@ namespace StarFall
             {
                 if (_currentSelect == 0)
                 {
-                    SceneManager.sceneLoaded += InitializingGameSettingProcess;
-                    SceneManager.LoadScene("PlayScene");
+                    if (_initialMessage)
+                    {
+                        SceneManager.sceneLoaded += IntroductionProcess;
+                        SceneManager.LoadScene("Introduction");
+                    }
+                    else
+                    {
+                        SceneManager.sceneLoaded += InitializingGameSettingProcess;
+                        SceneManager.LoadScene("PlayScene");
+                    }
                 }
                 else if (_currentSelect == 1) Quit();
             }
 
             /*--------------------------------------------------------------------*/
+        }
+
+        private void IntroductionProcess(Scene next, LoadSceneMode mode)  //操作説明シーンに切り替えるときに、諸処理をする
+        {
+            _gameManager.SetDifficulty(_currentDifficulty);  //難易度を設定
+            _gameManager.InitializeScore();  //スコアを初期化
+            SceneManager.sceneLoaded -= IntroductionProcess;
         }
 
         private void InitializingGameSettingProcess(Scene next, LoadSceneMode mode)  //ゲームシーンに切り替えるときに、諸処理をする

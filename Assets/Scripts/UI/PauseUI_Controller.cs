@@ -19,8 +19,8 @@ namespace StarFall
         private int _currentSelect = 0;
 
         //GC対策のカラー
-        private Color _ActiveButtonColor = new Color(0.8f, 0.8f, 0.8f);
-        private Color _DisableButtonColor = new Color(1f, 1f, 1f);
+        private Color _ActiveButtonColor = new Color(1f, 1f, 1f);
+        private Color _DisableButtonColor = new Color(0.4f, 0.4f, 0.4f);
 
         void Start()
         {

@@ -45,12 +45,16 @@ namespace StarFall
             }
             //instance変数に何か代入されていたらこれは必要ないため削除
             else Destroy(this.gameObject);
+
+            _hiScoreData = new HiScoreData(-1);  //HiScoreDataを新規作成
+
+            HiScoreData LoadData = SaveSystem.Load(0);
+            _hiScoreData.wasOpenExtra = LoadData.wasOpenExtra;  //Extra達成条件済フラグをロード
+            _hiScoreData.initialMessage = LoadData.initialMessage;  //操作画面を出すかどうかのフラグをロード
         }
 
         void Start()
         {
-            _hiScoreData = new HiScoreData(-1);  //HiScoreDataを新規作成
-            _hiScoreData.wasOpenExtra = SaveSystem.Load(0).wasOpenExtra;  //Extra達成条件済フラグをロード
 
             /*-----------------------------------------初期値設定-----------------------------------------*/
 
@@ -318,6 +322,21 @@ namespace StarFall
         }
 
         /*-----------------------------------------------------------------------------------------*/
+
+
+        /*-----------------------------初期メッセージ関係（Public関数）-----------------------------*/
+
+        public bool GetInitialMessage()
+        {
+            return _hiScoreData.initialMessage;
+        }
+
+        public void DisableInitialMessage()
+        {
+            _hiScoreData.initialMessage = false;
+        }
+
+        /*------------------------------------------------------------------------------------------*/
 
 
         public void AcceptReturn()  //タイトルシーンに戻るのを許可する関数（外部使用）
