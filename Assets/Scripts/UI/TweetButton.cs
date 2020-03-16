@@ -21,7 +21,7 @@ namespace StarFall
         public void TweetScore()  //Tweet処理
         {
             string text = UnityWebRequest.EscapeURL("私は" + _gameManager.GetDifficultyName() + "モードでスコア \"" + _gameManager.GetScore().ToString() + "\" でした！\nあなたもやってみる？\nhttps://github.com/mtytheone/StarFall/releases");
-            string hashtag = UnityWebRequest.EscapeURL("StarFall");
+            string hashtag = UnityWebRequest.EscapeURL("Star_Fall");
 
             string url = "https://twitter.com/intent/tweet?text=" + text + "&hashtags=" + hashtag;
 

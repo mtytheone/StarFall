@@ -35,8 +35,6 @@ namespace StarFall
 
         private bool _isUpdateHiScore;  //ゲーム中に1位のハイスコアを更新するかどうかのフラグ
 
-        private bool _initialMessage;
-
         void Awake()
         {
             //instance変数が空だったらこのGameManagerをDontDestroyOnLoadに設定
@@ -52,7 +50,7 @@ namespace StarFall
 
             HiScoreData LoadData = SaveSystem.Load(0);
             _hiScoreData.wasOpenExtra = LoadData.wasOpenExtra;  //Extra達成条件済フラグをロード
-            _initialMessage = LoadData.initialMessage;  //操作画面を出すかどうかのフラグをロード
+            _hiScoreData.initialMessage = LoadData.initialMessage;  //操作画面を出すかどうかのフラグをロード
         }
 
         void Start()
@@ -330,12 +328,12 @@ namespace StarFall
 
         public bool GetInitialMessage()
         {
-            return _initialMessage;
+            return _hiScoreData.initialMessage;
         }
 
         public void DisableInitialMessage()
         {
-            _initialMessage = false;
+            _hiScoreData.initialMessage = false;
         }
 
         /*------------------------------------------------------------------------------------------*/
