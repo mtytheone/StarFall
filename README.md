@@ -1,6 +1,6 @@
 # Star Fall
 
-[![ver:1.0](https://img.shields.io/badge/ver-1.0-8181F7.svg)](https://github.com/mtytheone/StarFall/releases/tag/v1.0)
+[![ver:1.1](https://img.shields.io/badge/ver-1.1-8181F7.svg)](https://github.com/mtytheone/StarFall/releases/tag/v1.0)
 [![License:GPLv3](https://img.shields.io/badge/License-GPLv3-04B431.svg)](https://choosealicense.com/licenses/gpl-3.0/)
 
 ## About - 概要
